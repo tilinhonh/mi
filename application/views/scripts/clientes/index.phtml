@@ -1,0 +1,69 @@
+<form method="POST">
+	<table>
+		<tr>
+			<td>
+				Grupo:<br/>
+				<?= $this->formSelect('grupo', $this->form['grupo'], $options,
+						$this->select->divisoes) ?>
+			</td>
+			<!--
+			<td>
+				Estado:<br/>
+				<?= $this->formSelect('estado', $this->form['estado'], $options,
+						$this->select->estados) ?>
+			</td>
+			<td>
+				Cidade:<br/>
+				<?= $this->formSelect('cidade', $this->form['cidade'], $options,
+						$this->select->cidades) ?>
+			</td>
+			-->
+			<td>
+			<br/>
+				<?= $this->formText('text', $this->form['text'], $options,
+						$this->select->divisoes) ?>
+			</td>
+			<td>
+				<?= $this->formSubmit('submit', 'Procurar', array('class'=>'button')) ?>
+			</td>
+		</tr>
+	</table>
+</form>
+
+<table class="tableItems" width="100%"> 
+	<tr> 
+	    <th>Nome</th>
+	    <th>Oficial</th>
+	    <th>Cidade</th>
+	    <th>Estado</th>
+	    
+	    <th class="editDelCell"><a href="/clientes/new">
+	    			<img src="/images/add4.png" alt="Adicionar" title="Adicionar" />
+	    		</a>
+	    	</th> 
+	</tr> 
+	<?php foreach($this->cliente as $cliente) : ?>
+	<?php @$style=($style=='evenRow') ? 'oddRow' : 'evenRow' ;?> 
+	<tr class="<?php echo @$style;?>"> 
+	    <td><?php echo $this->escape($cliente->nome);?></td> 
+	    <td><?php echo $this->escape($cliente->nome_oficial);?></td>
+	    <td><?php echo $this->escape($cliente->findParentRow('Cidades')->cidade);?></td>  
+	    <td class="center"><?php echo $this->escape(
+	    							$cliente
+	        							->findParentRow('Cidades')
+	    								->findParentRow('Estados')
+	    								->sigla
+	    							);
+	    			?></td>  
+	    
+	    
+	    
+	    <td class="editDelCell">
+	        <a href="<?php echo $this->url(array('action'=>'edit'))?>/id/<?php echo $cliente->id;?>">
+	        	<img src="/images/edit.png" alt="Editar" title="Editar" /></a> 
+	        <a href="<?php echo $this->url(array('action'=>'del'))?>/id/<?php echo $cliente->id;?>">
+	        	<img src="/images/del.png" alt="Excluir" title="Excluir" /></a> 
+		</td>
+	</tr> 
+	<?php endforeach; ?> 
+</table> 

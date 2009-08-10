@@ -1,0 +1,38 @@
+<?php
+	require('errors.phtml');
+	$form = $this->formData;
+?>
+
+<form method = "post">
+	<?= $this->formHidden('id', $form['id']) ?>
+
+	<label for="corso"> Corso: </label>
+	<br/>
+	<?= $this->formText('corso', $form['corso'],array('size'=>15, 'max-length'=>15)) ?>
+	<br/>
+
+	<label for="estacaoID"> Estacão: </label>
+	<br/>
+	<?= $this->formSelect('estacaoID', $form['estacaoID'], array('style'=>'min-width:70px'), $this->select->estacoes) ?>
+	<br/>
+
+
+	<?php  $options = array('cols'=>60, 'rows'=>5);?>
+
+
+	<label for="observacaoInterna"> Observacões Interna: </label>
+	<br/>
+	<?= $this->formTextarea('observacaoInterna', $this->escape($form['observacaoInterna']), $options) ?>
+	<br/>
+
+	<label for="observacaoFabrica"> Observacões Fábrica: </label>
+	<br/>
+	<?= $this->formTextarea('observacaoFabrica', $this->escape($form['observacaoFabrica']), $options) ?>
+
+
+	<br/>
+	<br/>
+	<?= $this->formSubmit('submit', 'Salvar',array('class'=>'button')) ?>
+	<?= $this->formSubmit('cancelar', 'Cancelar',array('class'=>'button2')) ?>
+
+</form>

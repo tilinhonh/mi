@@ -1,0 +1,59 @@
+<fieldset class="fieldset2">
+	<legend>Datas de entrega:</legend>
+                <table>
+                    <tr>
+                        <td>Cliente:<br/>
+                            <?php
+                                $options = array(
+                                            'maxlength'=>10,
+                                            'size'=>9,
+                                           'class'=>"required data {$fieldRequired['dataCliente']}"
+                                        );
+                            ?>
+                            <?= $this->formText('dataCliente',
+										BrazilianDate::toBrazilFormat($form['dataCliente']),
+                                        $options
+                                    ) ?>
+                                    </td>
+                          <td>Fabrica:<br/>
+                          <?php
+                                $options = array(
+                                            'maxlength'=>10,
+                                            'size'=>9,
+                                           'class'=>"required data {$fieldRequired['dataFabrica']}"
+                                        );
+                            ?>
+                            <?= $this->formText('dataFabrica',
+                                        BrazilianDate::toBrazilFormat($form['dataFabrica']),
+                                        $options
+                                    ) ?>
+                                    </td>
+                            <td>Fábrica Reprog.:<br/>
+                            <?php
+                                $options = array(
+                                            'maxlength'=>10,
+                                            'size'=>8,
+                                             'class'=>"data {$fieldRequired['dataFabricaReprogramada']}"
+                                        );
+                            ?>
+                            <?= $this->formText('dataFabricaReprogramada',
+                                        BrazilianDate::toBrazilFormat($form['dataFabricaReprogramada']),
+                                        $options
+                                    ) ?>
+                                    </td>
+						   <td>Saída Fábrica<br/>
+                            <?php
+                                $options = array(
+                                            'maxlength'=>10,
+                                            'size'=>8,
+                                             'class'=>"data {$fieldRequired['saidaFabrica']}"
+                                        );
+                            ?>
+                            <?= $this->formText('saidaFabrica',
+                                        BrazilianDate::toBrazilFormat($form['saidaFabrica']),
+                                        $options
+                                    ) ?>
+                                    </td>
+                    </tr>
+                </table>
+            </fieldset>

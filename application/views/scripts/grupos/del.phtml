@@ -1,0 +1,14 @@
+<?php if ($this->divisao) :?> 
+	<p>Tem certeza que deseja deletar o tipo de produto
+	  '<?php echo $this->escape($this->divisao->divisao); ?>'? 
+	</p> 
+	<form action="<?php echo $this->url(array('action'=>'del')); ?>" method="post"> 
+		<div> 
+		  <input type="hidden" name="id" value="<?php echo $this->divisao->id; ?>" /> 
+		  <input type="submit" class="button"  name="del" value="Sim" /> 
+		  <input type="submit" class="button2" name="del" value="Não" /> 
+		</div> 
+	</form> 
+<?php else: ?> 
+	<p>Tipo de produto não pôde ser encontrado.</p> 
+<?php endif;?> 

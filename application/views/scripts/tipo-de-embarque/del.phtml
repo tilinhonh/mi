@@ -1,0 +1,14 @@
+<?php if ($this->tipoEmbarque) :?> 
+	<p>Tem certeza que deseja deletar o tipo de embarque
+	  '<?php echo $this->escape($this->tipoEmbarque->tipo); ?>'? 
+	</p> 
+	<form action="<?php echo $this->url(array('action'=>'del')); ?>" method="post"> 
+		<div> 
+		  <input type="hidden" name="id" value="<?php echo $this->tipoEmbarque->id; ?>" /> 
+		  <input type="submit" class="button"  name="del" value="Sim" /> 
+		  <input type="submit" class="button2" name="del" value="Não" /> 
+		</div> 
+	</form> 
+<?php else: ?> 
+	<p>Tipo de embarque não pôde ser encontrado.</p>  
+<?php endif;?> 

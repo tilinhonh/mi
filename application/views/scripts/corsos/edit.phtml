@@ -1,0 +1,49 @@
+Data Inclusão: <?= BrazilianDate::toBrazilFormat($this->formData['dataInclusao']);?>
+<?php require('form.phtml'); ?>
+<table style="width:100%;">
+    <tr>
+        <th>Cliente</th>
+        <th>Pedido</th>
+        <th>Status</th>
+		<th>Quantidade</th>
+		<th>Data Cliente</th>
+        <th>
+            <a href="/pedidos/add/corso/<?= $this->id ?>"><img src="/images/add4.png"
+                title="Adicionar" alt="Adicionar" /></a>
+        </th>
+    </tr>
+<?php
+	$total=array();
+	foreach($this->pedidos as $pedido):
+
+		$total['quantidade'] += $pedido['quantidade'];
+?>
+    <?php $row =  !$row; ?>
+    <?php $trClass = $row ? 'oddRow' : 'evenRow'; ?>
+
+    <tr class="<?= $trClass?>">
+
+		 <td><?= $pedido['nome_cliente'] ?></td>
+		 <td><?= $pedido['pedido_cliente'] ?></td>
+		 <td><?= $pedido['status'] ?></td>
+		 <td class="right"><?= $pedido['quantidade'] ?></td>
+		 <td style="text-align:center;"><?= BrazilianDate::toBrazilFormat($pedido['data_cliente']) ?></td>
+        <td class="editDelCell">
+            <a href="/pedidos/edit/id/<?= $pedido[id]?>"><img src="/images/edit.png"
+                title="Editar" alt="Editar" /></a>
+
+            <a href="/pedidos/del/id/<?= $pedido['id']?>"><img src="/images/del.png"
+                title="Deletar" alt="Deletar" /></a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+	<tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+		<th class="right"><?= $total['quantidade']; ?></th>
+		<th></th>
+        <th></th>
+    </tr>
+</table>

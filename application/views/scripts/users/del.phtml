@@ -1,0 +1,14 @@
+<?php if ($this->user) :?> 
+	<p>Tem certeza que deseja deletar o usuário
+	  <b>'<?php echo $this->escape($this->user->name); ?>'</b>? 
+	</p> 
+	<form action="/users/del" method="post"> 
+		<div> 
+		  <input type="hidden" name="id" value="<?php echo $this->user->id; ?>" /> 
+		  <input type="submit" class="button"  name="del" value="Sim" /> 
+		  <input type="submit" class="button2" name="del" value="Não" /> 
+		</div> 
+	</form> 
+<?php else: ?> 
+	<p>O Usuário não pode ser encontrado.</p> 
+<?php endif;?> 

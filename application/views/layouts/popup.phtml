@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
+	<head> 
+	    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+	    <title><?php echo $this->escape($this->title); ?></title>
+	    <link rel="SHORTCUT ICON" href="/public/images/icon.ico" type="image/x-icon" />
+	    <link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl();?>/css/default.css" />
+	    <script type="text/javascript" language="javascript" src="<?php echo $this->baseUrl();?>/js/menu.js"> </script>
+<?php //LOADS SOME SCRIPTS ?>
+<?php if(is_array($this->script)):?>	    
+	<?php foreach($this->script as $script):?>
+		<script type="text/javascript" language="javascript" src="<?php echo $this->baseUrl();?>/js/<?php echo $script;?>"> </script>
+	<?php endforeach;?>
+<?php endif;?>
+
+	</head>
+	<body>
+        <div id="cleanContent">
+				<?php if($this->title):?>
+				  	<h1 id="pageTitle"><?php echo $this->escape($this->title); ?></h1> 
+				<?php endif;?>
+			    <?php echo $this->layout()->content; ?>
+        </div>
+	</body> 
+</html> 

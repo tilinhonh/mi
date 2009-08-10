@@ -1,0 +1,19 @@
+<a href="/users/add">
+	<img src="/images/add4.png" alt="Adicionar" title="Adicionar" /> 1 Usuário</a>
+<table class="tableItems">
+	<th>&nbsp;Username&nbsp;</th>
+	<th>&nbsp;Email&nbsp;</th>
+
+	<?php foreach($this->users as $user) :?>
+	<?php @$style=($style=='evenRow') ? 'oddRow' : 'evenRow' ;?> 
+	<tr class="<?php echo @$style;?>"> 
+			<td>&nbsp;<?php echo $this->escape($user->name);?>&nbsp;</td>
+			<td>&nbsp;<?php echo $this->escape($user->email);?>&nbsp;</td>
+			<td style="min-width:30pt;text-align: right;background-color: transparent;">
+		        <a href="/users/edit/id/<?php echo $user->id;?>"><img src="/images/edit.png" alt="Editar" title="Editar" /></a> 
+		            
+		        <a href="/users/del/id/<?php echo $user->id;?>"><img src="/images/del.png" alt="Excluir" title="Excluir" /></a> 
+		    </td> 
+		</tr>
+	<?php endforeach; ?>
+</table>

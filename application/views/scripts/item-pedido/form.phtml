@@ -1,0 +1,115 @@
+<?php
+	require('errors.phtml');
+	$form = $this->formValue;
+
+	//die('<pre>' . print_r($form , 1). '</pre>');
+?>
+<form id="itemPedido">
+	<?= $this->formHidden('id', $form['id'])  ?>
+	<?= $this->formHidden('pedido', $form['pedido'])  ?>
+
+	Produto:
+	<br/>
+
+	<?= $this->formSelect('produtoID', $form['produtoID'],
+			array('class'=>'required','style'=>'min-width:500px'),$this->select->produtos)  ?>
+
+	<img alt="Editar" title="Editar" id="editProduto" src="/images/edit.png"/>
+
+	<br/>
+
+	Fabrica:
+	<br/>
+	<?= $this->formSelect('fabricaID', $form['fabricaID'],
+			array('class'=>'required','style'=>'min-width:200px'),$this->select->fabricas)  ?>
+	
+	<?= $this->formCheckbox('cancelado', 1, array(
+			'class'=>'required','style'=>'min-width:200px',
+			'checked'=>$form['cancelado'] > 0 ? 'checked' : ''
+
+			)) ?>
+	<label for="cancelado">Cancelado</label>
+
+	<table>
+		<tr>
+			<td>
+				<fieldset><legend>Tamanhos</legend>
+					<table id="tabelaTamahos">
+						<tr>
+							<th></th><th>Qtd.</th>
+						</tr>
+						<?php foreach($this->tamanhos as $tamanho):?>
+						<tr>
+							<th>
+								<?= $tamanho->tamanho ?>
+							</th>
+							<td>
+								<input id="t<?= $tamanho->id ?>" size="5" class="quantidade center digits" name="quantidade[<?= $tamanho->id ?>]" type="text" value="<?= $form['quantidade'][$tamanho->id]?>" class="integer"/>
+							</td>
+						</tr>
+						<?php endforeach;?>
+						<td class="total">Total</td><td><p class="total" style="text-align:center" id="totalQuantidade"></p></td>
+					</table>
+				</fieldset>
+			</td>
+			<td valign="top" width="100%" style="padding-top:25px">
+		<?php if($this->action == 'edit'):?>
+			<table style="margin:0 0 15px 0;">
+				<tr>
+					<td>
+						<table id="tabelaPrecos">
+							<tr>
+								<th></th>
+								<th>Valor</th>
+							</tr>
+							<tr class="oddRow">
+								<th>Fabrica</th>
+								<td><?= $this->formText('precoFabrica',Dinheiro::toBrazilFormat($form['precoFabrica']),array('class'=>'dinheiro right','size'=>'10','maxlength'=>10)) ?></td>
+							</tr>
+							<tr class="evenRow">
+								<th>Cliente</th>
+								<td><?= $this->formText('precoCliente',Dinheiro::toBrazilFormat($form['precoCliente']),array('class'=>'dinheiro right','size'=>'10','maxlength'=>10)) ?></td>
+							</tr>
+						</table>
+					</td>
+					<td valign="top">
+						<table id="tabelaPrecosSugeridos">
+							<tr>
+								<th>Data</th>
+								<th>Fabrica</th>
+								<th>Cliente</th>
+								<th>PVL</th>
+							</tr>
+							<tr class="oddRow">
+								<td><p id="precoDataSugerido"></p></td>
+								<td><p style="text-align:right;" id="precoFabricaSugerido"></p></td>
+								<td><p style="text-align:right;" id="precoVendaSugerido"></p></td>
+								<td><p style="text-align:right;" id="precoPvlSugerido"></p></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		<?php endif;?>
+			
+				<table id="tabelaCombinacoes" width="100%">
+					<tr>
+						<th></th>
+						<th>Materiais</th>
+						<th>Cores</th>
+						<th>Imp.</th>
+						<th>Cód.</th>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<?= $this->formSubmit('submit','Salvar',array('class'=>'button'));?>
+	<?= $this->formButton('cancelar','Cancelar',array(
+													'class'=>'button2',
+													'onclick'=> "javascript:window.location.href='/pedidos/edit/' + $('#pedido').val();"
+													)
+												);?>
+
+	<input type="hidden" id="action" value="<?= $this->action ?>"/>
+</form>

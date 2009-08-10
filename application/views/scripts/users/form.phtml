@@ -1,0 +1,56 @@
+<?php
+	require 'errors.phtml';
+	$form = $this->formData;
+	$selectedGroups = $this->selectedGroups;
+
+?>
+<form method="post">
+<?= $this->formHidden('id',$form['id'],array()) ?>
+	<table>
+		<tr>
+			<td>
+				Name:<br/>
+				<?= $this->formText('name',$form['name'],
+						array('max-length'=>15,
+							'size'=>15
+						))?>
+			</td>
+		<?php if ($this->groups) : ?>
+			<td rowspan="3" valign="top">
+				<fieldset>
+					<legend>Groups:</legend>
+					<?php foreach($this->groups as $group):?>
+						<?php
+							if (in_array($group->id, $this->groupsOfMine) ){
+								$options['checked'] = 'true';
+							}else{
+								unset($options['checked']);}
+						?>
+						<?= $this->formCheckbox('groups[]', $group->id,$options);?>
+					<label><?= $group->name?>
+							<br/>
+					<?php endforeach;?>
+				</fieldset>
+			</td>
+		<?php endif;?>
+		</tr>
+		<tr>
+			<td valign="top">
+				Email:
+				<br/>
+				<?= $this->formText('email',$form['email'],
+						array('max-length'=>50,
+							'size'=>50
+						))?>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<?= $this->formSubmit('submit','Salvar',array('class'=>'button')) ?>
+				<?= $this->formButton('submit','Cancelar',array('class'=>'button2')) ?>
+			</td>
+		</tr>
+	</table>
+</form>
+
+

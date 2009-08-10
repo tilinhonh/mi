@@ -1,0 +1,40 @@
+<table style="width:100%;">
+    <tr>
+        <th>Corso</th>
+        <th>Cliente</th>
+        <th>Pedido</th>
+		<th>Pares</th>
+        <th>Status</th>
+        <th>Embarque</th>
+        <th>Data Cliente</th>
+        <th>
+            <a href="/<?= $this->controllerName; ?>/add"><img src="/images/add4.png"
+                title="Adicionar" alt="Adicionar" /></a>
+        </th>
+    </tr>
+<?php foreach($this->pedidos as $pedido): ?>
+    <?php $row =  !$row; ?>
+    <?php $trClass = $row ? 'oddRow' : 'evenRow'; ?>
+
+    <tr class="<?= $trClass?>">
+        
+         <td><?= $pedido->findParentRow('Corsos')->corso ?></td>
+		 <td><?= $pedido->findParentRow('Clientes')->nome ?></td>
+		 <td><?= $pedido->pedidoCliente ?></td>
+		 <td>X</td>
+		 <td><?= $pedido->findParentRow('Status')->status ?></td>
+		 <td><?= $pedido->findParentRow('TipoEmbarque')->tipo ?></td>
+		 <td><?= BrazilianDate::toBrazilFormat($pedido->saidaFabrica) ?></td>
+ 
+        <td class="editDelCell">
+            <a href="/<?= $this->controllerName ?>/edit/id/<?= $pedido->id?>"><img src="/images/edit.png"
+                title="Editar" alt="Editar" /></a>
+
+            <a href="/<?= $this->controllerName ?>/del/id/<?= $pedido->id?>"><img src="/images/del.png"
+                title="Deletar" alt="Deletar" /></a>
+        </td>
+    </tr>
+
+
+<?php endforeach; ?>
+</table>

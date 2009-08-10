@@ -1,0 +1,10 @@
+<?php if($this->corso):?>
+    <p>Tem certeza que deseja excluir o pedido '<?= $this->corso->corso?>'?</p>
+    <form method="post">
+        <input type="hidden" name="id" value="<?= $this->corso->id ?>"/>
+        <input type="submit" name="del" value="sim" class="button"/>
+        <input type="submit" name="del" value="não" class="button2"/>
+    </form>
+<?php else:?>
+    <p>Registro não encontrado.</p>
+<?php endif;?>

@@ -1,0 +1,32 @@
+<table style="width:100%"> 
+	<tr> 
+	    <th>Nome</th>
+	    <th>Cidade</th>
+	    <th>Estado</th>
+	    
+	    <th><a href="/designers/new"><img src="/images/add4.png" alt="Adicionar" title="Adicionar" /></a></th>
+	</tr> 
+	<?php foreach($this->designers as $designer) : ?>
+	<?php @$style=($style=='evenRow') ? 'oddRow' : 'evenRow' ;?> 
+	<tr class="<?php echo @$style;?>"> 
+	    <td><?php echo $this->escape($designer->nome);?></td>
+	    <td><?php echo $this->escape($designer->findParentRow('Cidades')->cidade);?></td>
+	    <td><?php echo $this->escape(
+	    							$designer
+	        							->findParentRow('Cidades')
+	    								->findParentRow('Estados')
+	    								->sigla
+	    							);
+	    			?></td>  
+	    
+	    
+	    
+	    <td class="editDelCell">
+	        <a href="<?php echo $this->url(array('action'=>'edit'))?>/id/<?php echo $designer->id;?>">
+				<img src="/images/edit.png" alt="Editar" title="Editar" /></a>
+	        <a href="<?php echo $this->url(array('action'=>'del'))?>/id/<?php echo $designer->id;?>">
+				<img src="/images/del.png" alt="Excluir" title="Excluir" /></a>
+		</td>
+	</tr> 
+	<?php endforeach; ?> 
+</table> 

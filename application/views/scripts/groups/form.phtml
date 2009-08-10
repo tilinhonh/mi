@@ -1,0 +1,29 @@
+<?php require('errors.phtml');
+	$form= $this->formValue;
+
+?>
+<form id="formGroups" method="POST">
+	Grupo:
+	<br/>
+	<?= $this->formHidden('id', $form['id'],array('size'=>50,'maxlength'=>50)); ?>
+	<?= $this->formText('name', $form['name'],array('size'=>50,'maxlength'=>50)); ?>
+
+	<br/>
+	Descrição:
+	<br/>
+	<?= $this->formTextarea('description', $form['description'],array('size'=>50,'maxlength'=>50)); ?>
+
+
+	<br/>
+	<br/>
+	<?= $this->formSubmit('submit', 'Save',array('class'=>'button')); ?>
+	<?= $this->formButton('cancelar', 'Cancelar',
+		array(
+			'class'=>'button2',
+			'onclick'=>'javascript:window.location.href=\'/' . $this->controllerName . '\''
+			)
+		);
+	?>
+
+
+</form>

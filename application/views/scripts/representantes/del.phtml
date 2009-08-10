@@ -1,0 +1,14 @@
+<?php if ($this->designer) :?>
+	<p>Tem certeza que deseja deletar o Designer
+	  '<?php echo $this->escape($this->designer->nome); ?>'?
+	</p> 
+	<form action="<?= $this->url(array('action'=>'del')); ?>" method="post">
+		<div> 
+		  <input type="hidden" name="id" value="<?= $this->designer->id; ?>" />
+		  <input type="submit" class="button"  name="del" value="Sim" /> 
+		  <input type="submit" class="button2" name="del" value="Não" /> 
+		</div> 
+	</form> 
+<?php else: ?> 
+	<p>Designer não pôde ser encontrada.</p>
+<?php endif;?> 

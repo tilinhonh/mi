@@ -1,0 +1,19 @@
+	<table class="tableItems"> 
+		<tr> 
+		    <th>Divisão</th> 
+		    <th>Descrição</th> 
+		    <th><a href="<?php echo $this->url(array('action'=>'add'))?>"><img src="/images/add4.png" alt="Adicionar" title="Adicionar" /></a>
+		    </th> 
+		</tr> 
+		<?php foreach($this->divisao as $divisao) : ?>
+		<?php @$style=($style=='evenRow') ? 'oddRow' : 'evenRow' ;?> 
+		<tr class="<?php echo @$style;?>"> 
+		    <td>&nbsp;<?php echo $this->escape($divisao->divisao);?>&nbsp;</td> 
+		    <td>&nbsp;<?php echo $this->escape($divisao->descricao);?>&nbsp;</td> 
+		    <td style="min-width:30pt;text-align: right;background-color: transparent;">
+		        <a href="<?php echo $this->url(array('action'=>'edit'))?>/id/<?php echo $divisao->id;?>"><img src="/images/edit.png" alt="Editar" title="Editar" /></a> 
+		        <a href="<?php echo $this->url(array('action'=>'del'))?>/id/<?php echo $divisao->id;?>"><img src="/images/del.png" alt="Excluir" title="Excluir" /></a>
+			</td>
+		</tr> 
+		<?php endforeach; ?> 
+	</table> 

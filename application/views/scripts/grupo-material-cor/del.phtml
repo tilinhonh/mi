@@ -1,0 +1,15 @@
+<?php if($this->grupoMaterialCor):?>
+    <p>Tem certeza que deseja excluir combinacao '
+    <?= $this->grupoMaterialCor->findParentRow('Estacoes')->estacao; ?> /
+    <?= $this->grupoMaterialCor->findParentRow('Divisoes')->divisao; ?> /
+    <?= $this->grupoMaterialCor->findParentRow('Materiais')->material; ?> /
+    <?= $this->grupoMaterialCor->findParentRow('Cores')->cor; ?>
+    '?</p>
+    <form method="post">
+        <input type="hidden" name="id" value="<?= $this->grupoMaterialCor->id ?>"/>
+        <input type="submit" name="del" value="sim" class="button"/>
+        <input type="submit" name="del" value="não" class="button2"/>
+    </form>
+<?php else:?>
+    <p>Registro não encontrado.</p>
+<?php endif;?>

@@ -1,0 +1,48 @@
+<form id="combinacoesForm" method="POST">
+	<?php $form = $this->form ?>
+	<?= $this->formHidden('id', $form['id']) ?>
+<table>
+    <tr>
+        <td>
+			Estação:<br />
+			<?= $this->formSelect('estacaoID', $form['estacaoID'],
+					array(), $this->select->estacoes) ?>
+				<a href="/estacoes/add" target="_blank">+</a>
+		</td>
+        <td>
+			Grupo:<br />
+			<?= $this->formSelect('divisaoID', $form['divisaoID'],
+					array(), $this->select->divisoes) ?>
+				<a href="/grupos/add" target="_blank">+</a>
+		</td>
+        <td>
+			Material:<br />
+			<?= $this->formSelect('materialID', $form['materialID'],
+					array(), $this->select->materiais) ?>
+				<a href="/materiais/add" target="_blank">+</a>
+		</td>
+        <td>
+			Cor:<br />
+			<?= $this->formSelect('corID', $form['corID'],
+					array(), $this->select->cores) ?>
+				<a href="/cores/add" target="_blank">+</a>
+		</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+			Observações:<br />
+			<?= $this->formTextarea('observacoes', $form['observacoes'],
+					array('cols'=>40, 'rows'=> 5)) ?>
+		</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+			<?= $this->formSubmit('submit', 'Salvar', array('class'=>'button')) ?>
+			<?= $this->formButton('cancelar', 'cancelar',
+				array('class'=>'button2',
+						'onclick'=>'window.location.href=\'/grupo-material-cor\''
+				)) ?>
+		</td>
+    </tr>
+</table>
+</form>

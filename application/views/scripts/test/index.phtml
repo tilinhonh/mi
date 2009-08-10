@@ -1,0 +1,31 @@
+<h1><?=$this->message;?></h1>
+
+<?php require("errors.phtml");?>
+
+
+<form method="post">
+    <label for="nome">Nome:</label><br/>
+    <?= $this->formText('nome', $this->formValue['nome'] ,array('size',25));?>
+    
+    <br/>
+    <label for="sobrenome">Sobrenome:</label><br/>
+    <?= $this->formText('sobrenome', $this->formValue['sobrenome'] ,array('size'=>25));?>
+    
+    <br/>
+    <label for="email">Email:</label><br/>
+    <?= $this->formText('email', $this->formValue['email'] ,array('size'=>85));?>
+    <br/>
+    <label for="Estados">Estado:</label><br/>
+    <?= $this->formSelect('estado', $this->formValue['estado'] , array() ,$this->estados);?>
+    
+    <br/>
+    <?= $this->formSubmit('submit','Salvar',array('class'=>'button'));?>
+</form>
+
+<?php
+
+$email = "";
+echo Zend_Validate::is($email, 'EmailAddress');
+
+?>
+

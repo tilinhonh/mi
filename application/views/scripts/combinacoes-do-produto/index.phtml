@@ -1,0 +1,54 @@
+<?php foreach($this->combinacoes as $combinacao) : ?>
+    <?php @$style=($style=='evenRow') ? 'oddRow' : 'evenRow' ;?>
+    	<tr class="<?php echo @$style;?>">
+            <td>
+                <?php
+                    //nome das cores
+                    $selectCores = $this->tCombCores
+                                ->select()
+                                ->where('combinacaoID = ?', $combinacao->id)
+                                ->order('importancia');
+                    $i=0;
+                    foreach($this->tCombCores->fetchAll($selectCores) as $c):
+                        $comma = $i++ > 0 ? ', ' : '';
+                        $cor = $c->findParentRow('Cores')->cor;
+
+                ?>
+                    <?= $comma; ?>
+                    <font class="soft">(<?= $c->importancia; ?>)</font><?= $cor;?>
+                    <?php endforeach;?>
+            </td>
+            <td>
+                <?php
+                    $selectMateriais = $this->tCombMateriais
+                                ->select()
+                                ->where('combinacaoID = ?', $combinacao->id)
+                                ->order('importancia');
+                    $i=0;
+                    foreach($this->tCombMateriais->fetchAll($selectMateriais) as $m):
+                        $comma = $i++ > 0 ? ', ' : '';
+                        $material = $m->findparentRow('Materiais')->material;
+
+                ?>
+                    <?= $comma; ?>
+                    <font class="soft">(<?= $m->importancia; ?>)</font><?= $material; ?>
+                    <?php endforeach;?>
+
+            </td>
+
+            <td class="right"><?= $combinacao->pFabrica; ?></td>
+            <td class="right"><?= $combinacao->pVenda; ?></td>
+            <td class="right"><?= $combinacao->pvl; ?></td>
+            <td>
+                <?php //prevents error case ncmID is null?>
+                <?if($combinacao->ncmID):?>
+                    <?= $combinacao->findParentRow('Ncms')->descricao; ?>
+                <?endif;?>
+            </td>
+
+            <td style="min-width:30pt;text-align: right;background-color: transparent;">
+                <a href="#" class="edit" id="edit<?=$combinacao->id;?>"><img src="/images/edit.png" alt="Editar" title="Editar" /></a>
+                <a href="#" class="del" id="del<?=$combinacao->id;?>"><img src="/images/del.png" alt="Excluir" title="Excluir" /></a>
+        	</td>
+        </tr> 
+<?php endforeach; ?>

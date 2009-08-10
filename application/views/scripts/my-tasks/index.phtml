@@ -1,0 +1,79 @@
+<form method="POST">
+    <table>
+        <tr>
+            <td><BR/><strong>!</strong><input name="status_not" type="checkbox" value="1" <?= $this->status_not ?>/></td>
+            <td><?= $this->my_tasks_status_id ?></td>
+            <td><BR/><strong>!</strong><input name="priority_not" type="checkbox" value="1" <?= $this->priority_not ?>/></td>
+            <td><?= $this->my_tasks_priority_id ?></td>
+            <td>
+                <label for="text">Content:</label><br/>
+                <input type="text" name="text" id="text" value="<?= $this->text ?>"/>
+            </td>
+            <td><input type="submit" value="Go!" class="button2"/></td>
+        </tr>
+    </table>
+</form>
+<a href="/my-tasks/new"><img src="/images/add4.png" alt="add" title="new"/>New task</a>
+<?php $date = new Zend_Date(); ?>
+<table style="width:100%">
+    <tr>
+        <th>Task</th>
+        <th>Info</th>
+    </tr>
+    <?php foreach($this->tasks as $task): ?>
+        <?php $style = $style == 'evenRow' ? 'oddRow' : 'evenRow';?>
+        <tr class="<?= $style ?>">
+            <td style="vertical-align:top">
+                <table>
+                    <tr>
+                        <td>
+                            <a href="/my-tasks/del/id/<?= $task['id'] ?>"><img src="/images/del.png" title="del" alt="del"/></a>
+                        </td>
+                        <td>
+                            <strong onclick="javascript=window.location.href='/my-tasks/edit/id/<?= $task['id'] ?>'"><?= $task['task_title'] ?></strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td><pre><?= $task['task_description'] ?></pre></td>
+                    </tr>
+                </table>
+             </td>
+             <td style="vertical-align:top">
+                <table>
+                    <tr>
+                        <td><small>Priority</small></td>
+                        <td><?= $task['priority_name'] ?></td>
+                    </tr>
+                    <tr>
+                        <td><small>Status</small></td>
+                        <td><?= $task['status_name'] ?></td>
+                    </tr>
+                    <tr>
+                        <td><small>Inclusion</small></td>
+                        <td>
+                        <?php
+                            if(Zend_Date::isDate($task['task_date'],'YYYY-MM-dd')){
+                                $date->set($task['task_date'],'YYYY-MM-dd');
+                                echo $date->get('dd/MM/YY');
+                            }
+                        ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><small>Finished:</small></td>
+                        <td>
+                            <?php
+                            if(Zend_Date::isDate($task['task_finish_date'],'YYYY-MM-dd')){
+                                $date->set($task['task_finish_date'],'YYYY-MM-dd');
+                                echo $date->get('dd/MM/YY');
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                </table>
+             </td>
+        <tr>
+    <?php endforeach; ?>
+</table>

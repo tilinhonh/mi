@@ -1,0 +1,19 @@
+<table>
+	<tr>
+		<th>Cidade</th>
+		<th>Estado</th>
+	</tr>
+
+	<?php foreach($this->paginator as $record) : ?>
+		<?php $class = $class === 'oddRow' ? 'evenRow' : 'oddRow' ;?>
+	<tr class="<?= $class ?>">
+		<td><?= $record['cidade']?></td>
+		<td><?= $record['id']?></td>
+	</tr>
+	<?php endforeach; ?>
+</table>
+
+<br/>
+
+	<?= $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml'); ?>
+

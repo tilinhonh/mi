@@ -1,0 +1,12 @@
+<h1>Delete Status</h1>
+
+<?php if($this->status):?>
+    <p>Sure you want to delete status '<?= $this->status->name?>'?</p>
+    <form method="post">
+        <input type="hidden" name="id" value="<?=$this->status->id?>"/>
+        <input type="submit" name="del" value="yes" class="button"/>
+        <input type="submit" name="del" value="no" class="button2"/>
+    </form>
+<?php else:?>
+        <p>Register not found.</p>
+<?php endif;?>

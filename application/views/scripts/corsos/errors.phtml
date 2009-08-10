@@ -1,0 +1,15 @@
+<?php if( count($this->errors) > 0 ):?>
+<div class="topMessages">
+    <?php foreach($this->errors as $message => $error):?>
+        <p class="error">- <?= $error; ?></p>
+    <? endforeach;?>
+</div>
+<?php endif;?>
+
+<?php if( count($this->invalidFields) > 0 ):
+        $requiredClass = array();
+        foreach($this->invalidFields as $k => $v):
+            $fieldRequired[$v] = "fieldRequired";
+        endforeach;
+      endif;
+?>

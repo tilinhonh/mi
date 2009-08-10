@@ -1,0 +1,45 @@
+<form method="post" id="formID">
+<?=$this->form->id?>
+	<table id="formTable" border="1">
+
+		<tr>	
+			<td colspan="5"><?=$this->form->fantasia?></td>
+			<td colspan="1"><?=$this->form->ativo?></td>
+		</tr>
+		<tr>
+			<td colspan="6"><?=$this->form->nome?></td>
+		</tr>
+		<tr>
+			<td colspan="6"><?=$this->form->contato?></td>
+		</tr>
+		<tr>	
+			<td colspan="6"><?=$this->form->endereco?></td>
+		</tr>
+		<tr>
+			<td colspan="3"><?=$this->form->numero?></td>
+			<td colspan="3"><?=$this->form->complemento?></td>
+		</tr>
+		<tr>
+			<td colspan="2"><?=$this->form->bairro?></td>
+			<td colspan="2"><?=$this->form->estadoID?></td>
+			<td colspan="2"><?=$this->form->cidadeID?></td>
+		</tr>
+		<tr>
+			<td colspan="3"><?=$this->form->telefone?></td>
+			<td colspan="1"><?=$this->form->cep?></td>
+			<td colspan="1"><?=$this->form->inscricaoEstadual?></td>
+			<td colspan="1"><?=$this->form->cnpj?></td>
+			
+		</tr>
+		<tr>
+			<td colspan="3"><?=$this->form->fax?></td>
+			<td colspan="3"><?=$this->form->email?></td>
+			
+		</tr>
+		<tr>
+			<td colspan="4"></td>
+			<td colspan="1"><?=$this->form->submit?></td>
+			<td colspan="1"><?=$this->form->cancelar?></td>
+		</tr>
+	</table>
+</form>

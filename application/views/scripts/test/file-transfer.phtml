@@ -1,0 +1,6 @@
+<form enctype="multipart/form-data" method="POST">
+    <input type="hidden" name="MAX_FILE_SIZE" value="150000" />
+        Pic: <?= $this->formFile('image'); ?>
+    <br />
+		<?= $this->formSubmit('salvar', 'Salvar', array('class'=>'button')); ?>
+</form>

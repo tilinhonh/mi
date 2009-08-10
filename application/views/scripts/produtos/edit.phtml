@@ -1,0 +1,113 @@
+<div id="divFotoProduto">
+	<div style="height:225px;">
+		<img id="pic" src="<?= $this->mainPicture ?>" />
+	</div>
+	<div>
+		<a href="#" id="prevPic" > &lt;&lt;Anterior	</a>&nbsp;||&nbsp;
+		<a href="#" id="nextPic" > Próxima&gt;&gt;</a>
+		<br>
+		<a href="/produtos/upload-pic/produto/<?= $this->formData['id'] ?>" target="_blank" id="addPicture" > + foto</a>&nbsp;<small>||</small>&nbsp;
+		<a href="#" id="addPicture" > - foto</a>
+	</div>
+</div>
+
+
+<?php
+ require('form.phtml');
+ //echo $this->form;
+ ?>
+
+<br/>
+<br/>
+<!--  ################# div de combinacoes            -->
+    <div id="divRightMenu">
+    <div class="fechar">Combinações<a href="#">x</a></div>
+        <form method="post" id="formCombinacoes">
+        	<table>
+        		<tr>
+            		<td valign="top">
+            			<div class="divInner">
+                            <!-- Tabela de Materiais -->
+                        	<table id="tabelaGrupoMaterialCor">
+                        		<tr>
+                        			<td colspan="4">
+                        				<label for="suggestGroupMaterialCor">Artigo:</label>
+                        				<br/>
+                        				<input type="text" size="50" name="suggestGrupoMaterialCor" id="suggestGrupoMaterialCor"/>
+                                        <a class="adicionaComponente" target="_blank" rel="external" href="/grupo-material-cor/add">+</a>
+                    				</td>
+                        		</tr>
+
+                        		<tr>
+                                    <td colspan="4">
+                                        <table id="tableSelectedGMP" width="100%">
+                                            <tr>
+                                                <td class="soft">Código</td>
+                                                <td class="soft">Estacao</td>
+                                                <td class="soft">Grupo</td>
+                                                <td class="soft">Material</td>
+                                                <td class="soft">Cor</td>
+                                                <td class="soft">Importância</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                        		</tr>
+                        	</table>
+                        </div>	
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                    <!-- NCM, Preços -->
+                        <div class="divInner">
+                        	<table>
+                        		<tr>
+                        			<td>
+                                         <input type="hidden"  id="ncmID" name="ncmID" value=""/>
+                        				<label for="suggestNcm">NCM:</label>
+                        				<br/>
+                        				<input type="text" name="suggestNcm" size="50" id="suggestNcm"/>
+                                        <a class="adicionaComponente" target="_blank" rel="external big" href="/ncms/add/popup/1">+</a>
+                        			<td>
+                       			</tr>
+                    		</table>
+            			</div>
+                    </td>
+               </tr>
+               <tr>
+                    <td>
+                        <div id="divPreco" class="divInner">
+                            <table id="tabelaPrecos" width="100%">
+                                <tr>
+                                    <th class="soft">Fábrica</th>
+                                    <th class="soft">Preço Fábrica</th><th class="soft">Preço Venda</th>
+                                    <th class="soft">Pvl</th><th class="soft">Data</th>
+                                    <th><img src="/images/add4.png" title="Adicionar" id="addNewPrice" alt="Adicionar"/></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+               </tr>
+           </table>
+        		<!-- Submit cores -->
+                <input type="hidden" name="combinacaoID" id="combinacaoID"/>
+                <input type="hidden"  id="action" name="action" value="add"/>
+            	<input type="submit" class="button" id="combinacaoSubmit" value="Adicionar"/>
+        </form>
+    </div>
+<!--  ################# div de combinacoes            -->
+    <table class="tableItems" id="tabelaListaCombinacoes">
+        <tr>
+            <th></th>
+            <th>Estação</th>
+            <th>Material</th>
+            <th>Cor</th>
+            <th>Imp.</th>
+            <th>Codigo</th>
+            <th>
+                <img src="/images/add4.png" title="Adicionar" id="addCombination" alt="Adicionar"/>
+				<a href="#" id="showPrecos">$</a>
+             </th> 
+       </tr> 
+    </table>
+    <div class="menuCentral"></div>

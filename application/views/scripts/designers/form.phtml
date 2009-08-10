@@ -1,0 +1,154 @@
+<form method="post" id="myForm">
+<?php $form = $this->form ?>
+<?= $this->formHidden('id', $form['id'] ) ?>
+	<table id="formTable" border="1">
+
+		<tr>	
+			<td colspan="5">
+				Nome:<br />
+				<?= $this->formText('nome' , $form['nome'],
+						array('class'=>'required',
+							'maxlength' => '45',
+							'size' => '50'
+						)
+				)?>
+			</td>
+			<td colspan="1">
+				Ativo:
+				<?php $options = $form['ativo'] > 0 ? array('checked'=>'checked') : array(); ?>
+				<?= $this->formCheckbox('ativo', 1, $options ) ?>
+			</td>
+			<td rowspan="7" valign="top">
+				<fieldset class="fieldset2"><legend>Financeiro</legend>
+					Comissão:<br />
+					<?= $this->formText('comissao' , Dinheiro::toBrazilFormat($form['comissao']),
+						array('class'=>'dinheiro',
+							'maxlength' => '5',
+							'size' => '5'
+						)
+					)?>
+				</fieldset>
+			</td>
+		</tr>
+
+		
+		<tr>
+			<td colspan="6">
+			Nome empresa:<br />
+				<?= $this->formText('nome_empresa' , $form['nome_empresa'],
+						array('class'=>'required',
+							'maxlength' => '45',
+							'size' => '63'
+						)
+				)?>
+			</td>
+		</tr>
+
+
+		
+		<tr>	
+			<td colspan="6">
+			Endereço:<br />
+				<?= $this->formText('endereco' , $form['endereco'],
+						array('class'=>'required',
+							'maxlength' => '80',
+							'size' => '63'
+						)
+				)?>
+			</td>
+		</tr>
+
+
+		
+		<tr>
+			<td colspan="3">
+				Numero:<br />
+				<?= $this->formText( 'numero' , $form['numero'],
+						array('class'=>'required',
+							'maxlength' => '10',
+							'size' => '17'
+						)
+				)?>
+			</td>
+			<td colspan="3">
+				Complemento:<br />
+				<?= $this->formText( 'complemento' , $form['numero'],
+						array('class'=>'',
+							'maxlength' => '10',
+							'size' => '17'
+						)
+				)?>
+			</td>
+		</tr>
+
+
+		
+		<tr>
+			<td colspan="2">
+				Bairro:<br />
+				<?= $this->formText('bairro' , $form['bairro'], 
+						array('class'=>'required',
+							'maxlength' => '45',
+							'size' => '17'
+						)
+				)?>
+			</td>
+			<td colspan="2">
+				Estado:<br />
+				<?= $this->formSelect('estadoID' , $form['estadoID'], array('class' => 'required') , $this->select->estados ) ?>
+			</td>
+			<td colspan="2">
+				Cidade:<br />
+				<?= $this->formSelect('cidadeID' , $form['cidadeID'], array('class' => 'required'), $this->select->cidades ) ?>
+			</td>
+		</tr>
+
+
+		<tr>
+			<td colspan="3">
+				Telefone:<br />
+				<?= $this->formText('telefone' , $form['telefone'], array('class' => 'required')) ?>
+			</td>
+			<td colspan="1">
+				Cep:<br />
+				<?= $this->formText('cep' , $form['cep'], array('class' => 'required')) ?>
+			</td>
+			<td colspan="2">
+				CNPJ:<br />
+				<?= $this->formText('cnpj' , $form['cnpj'], array('class' => 'required cnpj')) ?>
+			</td>
+		</tr>
+
+
+		<tr>
+			<td colspan="3">
+				Fax:<br />
+				<?= $this->formText('fax' , $form['fax'], array('class' => '')) ?>
+			</td>
+			<td colspan="3">
+				Email:<br />
+				<?= $this->formText('email' , $form['email'], 
+						array('class'=>'required email',
+							'maxlength' => '80',
+							'size' => '43'
+						)
+				)?>
+			</td>
+		</tr>
+
+		
+		<tr>
+			<td colspan="4"></td>
+			<td colspan="1">
+				<?= $this->formSubmit('submit', 'Salvar', array('class' => 'button') ) ?>
+			</td>
+			<td colspan="1">
+				<?= $this->formButton('cancelar' , 'Cancelar',
+						array(	'class'=>'button2',
+								'onclick'=>'javascript:window.location.href=\'/designers\''
+						)
+				) ?>
+			</td>
+		</tr>
+	</table>
+</form>

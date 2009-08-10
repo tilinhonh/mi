@@ -1,0 +1,80 @@
+<form method="post" id="formID">
+<?=$this->form->id?>
+	<table id="formTable" border="1">
+		<tr>
+			<td colspan="6"></td>
+			<td rowspan="6">
+				<fieldset class="fieldset2">
+					<legend>Financeiro</legend>
+						<table>
+							<tr>
+								<td>
+									<?=$this->form->limite->setValue(Dinheiro::toBrazilFormat($this->form->limite->getValue()))?>
+								</td>
+							</tr>
+							<tr>
+								<td>Total a pagar:</td>
+								<td align="right">
+									<font class="<?= $this->pendente >  0 ? 'positivo' : 'negativo'?>">
+									R$ <?= Dinheiro::toBrazilFormat($this->pendente) ?>
+									</font>
+								</td>
+							</tr>
+							<tr>
+								<td>Saldo Disponível:</td>
+								<td align="right">
+									<font class="<?= $this->disponivel >  0 ? 'positivo' : 'negativo'?>">
+									R$ <?= Dinheiro::toBrazilFormat($this->disponivel)?>
+									</font>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+                                    <?=$this->form->notas?>
+								</td>
+							</tr>
+						</table>
+    			</fieldset>
+			</td>
+    		</tr>
+		<tr>	
+			<td colspan="5"><?=$this->form->nome?></td>
+			<td colspan="1"><?=$this->form->ativo?></td>
+    		</tr>
+		<tr>
+			<td colspan="5"   style="vertical-align:top;"><?=$this->form->nome_oficial?></td>
+			<td colspan="5"><?=$this->form->divisaoID?></td>
+    		</tr>
+		<tr>
+			<td colspan="5"><?=$this->form->contato?></td>
+			<td></td>
+			</tr>
+		<tr>	
+			<td colspan="6"><?=$this->form->endereco?></td>
+    		</tr>
+		<tr>
+			<td colspan="3"><?=$this->form->numero?></td>
+			<td colspan="3"><?=$this->form->complemento?></td>
+    		</tr>
+		<tr>
+			<td colspan="2"><?=$this->form->bairro?></td>
+			<td colspan="2"><?=$this->form->estadoID?></td>
+			<td colspan="2"><?=$this->form->cidadeID?></td>
+    		</tr>
+		<tr>
+			<td colspan="3"><?=$this->form->telefone?></td>
+			<td colspan="1"><?=$this->form->cep?></td>
+			<td colspan="1"><?=$this->form->inscricaoEstadual?></td>
+			<td colspan="1"><?=$this->form->cpfCnpj?></td>
+    		</tr>
+		<tr>
+			<td colspan="3"><?=$this->form->fax?></td>
+			<td colspan="3"><?=$this->form->email?></td>
+    		</tr>
+		<tr>
+			<td colspan="4"></td>
+			<td colspan="1"><?=$this->form->submit?></td>
+			<td colspan="1"><?=$this->form->cancelar?></td>
+    		</tr>
+	</table>
+</form>

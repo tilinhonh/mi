@@ -1,0 +1,23 @@
+<table class="tableItems"> 
+<tr> 
+    <th>Tipo de Produto</th> 
+    <th>Descrição</th>
+    <th>Unidade Medida</th>
+    <th>Un. Med.</th>
+    <th><a href="<?php echo $this->url(array('action'=>'add'))?>"><img src="/images/add4.png" alt="Adicionar" title="Adicionar" /></a>
+    </th> 
+</tr> 
+<?php foreach($this->tipoProduto as $tipoProduto) : ?>
+<?php @$style=($style=='evenRow') ? 'oddRow' : 'evenRow' ;?> 
+<tr class="<?php echo @$style;?>"> 
+    <td><?php echo $this->escape($tipoProduto->tipo);?></td> 
+    <td><?php echo $this->escape($tipoProduto->descricao);?></td>
+    <td><?php echo $this->escape($tipoProduto->unidadeMedida);?></td>
+    <td><?php echo $this->escape($tipoProduto->unidadeMedidaShort);?></td>
+    <td style="min-width:30pt;text-align: right;background-color: transparent;">
+        <a href="<?php echo $this->url(array('action'=>'edit'))?>/id/<?php echo $tipoProduto->id;?>"><img src="/images/edit.png" alt="Editar" title="Editar" /></a> 
+        <a href="<?php echo $this->url(array('action'=>'del'))?>/id/<?php echo $tipoProduto->id;?>"><img src="/images/del.png" alt="Excluir" title="Excluir" /></a> 
+	</td>
+</tr> 
+<?php endforeach; ?> 
+</table> 

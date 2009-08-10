@@ -1,0 +1,19 @@
+<h1>My Tasks Status</h1>
+<table>
+    <tr>
+        <th>Status</th>
+        <th>Description</th>
+        <th><a href="/my-tasks-status/new">New</a></th>
+    </tr>
+    <?php foreach($this->status as $s): ?>
+        <?php $style = $style == 'evenRow' ? 'oddRow' : 'evenRow'?>
+        <tr class="<?= $style ?>">
+            <td><?= $s->name ?></td>
+            <td><?= $s->description ?></td>
+            <td>
+                <a href="/my-tasks-status/edit/id/<?= $s->id ?>">Edit</a>
+                <a href="/my-tasks-status/del/id/<?= $s->id ?>">Del</a>
+            </td>
+        <tr>
+    <?php endforeach; ?>
+</table>

@@ -1,0 +1,68 @@
+
+
+<div align="center">
+	<div id="formDiv">
+		<form method="post">
+			<?= $this->formTextarea('sql', $this->sql, array('cols'=>150, 'rows'=> 5)) ?>
+			<br/>
+			<?= $this->formSubmit('submit', 'Query!', array('class'=>'button')) ?>
+		</form>
+	</div>
+	<?= $this->errors()->render();?>
+	<div id="resultDiv">
+
+	<table id="resultTable">
+	<?php foreach ($this->resultset as $row) : ?>
+
+		<?php if(!$i): ?>
+			<tr>
+			<?php foreach ($row as $name => $value) : ?>
+				<th><?= $name ?></th>
+			<?php endforeach;?>
+			</tr>
+		<?php endif; ?>
+
+
+		<tr class="<?= $i % 2 ? 'oddRow' : 'evenRow '?><?php $i++?>">
+		<?php foreach ($row as $name => $value) : ?>
+			<td title="<?= $name ?>"><?= $value ? $value : '&nbsp;' ?></td>
+		<?php endforeach;?>
+		</tr>
+	<?php endforeach; ?>
+		<tr>
+			<td align="center" colspan="<?= count($row) ?>"><?= count($this->resultset) ?> rows found.</td>
+		</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+	
+</div>

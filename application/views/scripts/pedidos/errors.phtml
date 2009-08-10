@@ -1,0 +1,7 @@
+<?php if( count($this->invalidFields) > 0 ):
+        $requiredClass = array();
+        foreach($this->invalidFields as $k => $v):
+            $fieldRequired[$v] = "fieldRequired";
+        endforeach;
+      endif;
+?>

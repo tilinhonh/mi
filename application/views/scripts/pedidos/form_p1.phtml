@@ -1,0 +1,103 @@
+<table>
+	<tr>
+        <td>Corso:<br/>
+            <?php
+                $options = array(
+                            'style'=>'min-width:120px',
+                            'class'=>"required {$fieldRequired['corsoID']}"
+                        );
+            ?>
+            <?= $this->formSelect(
+                    'corsoID',
+                    $form['corsoID'],
+                    $options,
+                    $this->select->corsos) ?>
+        </td>
+		<td>Cliente:<br/>
+            <?php
+                $options = array(
+                            'style'=>'min-width:120px',
+                            'class'=>"required {$fieldRequired['clienteID']}"
+                        );
+            ?>
+            <?= $this->formSelect(
+                        'clienteID',
+                        $form['clienteID'],
+                        $options,
+                        $this->select->clientes
+                    ) ?>
+        </td>
+        <td>Transportadora:<br/>
+            <?php
+                $options = array(
+                            'style'=>'min-width:120px',
+                            'class'=>"required {$fieldRequired['transportadoraID']}"
+                        );
+            ?>
+            <?= $this->formSelect(
+                        'transportadoraID',
+                        $form['transportadoraID'],
+                        $options,
+                        $this->select->transportadoras
+                    ) ?>
+                </td>
+        <td>Representante:<br/>
+            <?php
+                $options = array(
+                            'style'=>'min-width:120px',
+                            'class'=>"{$fieldRequired['representanteID']}"
+                        );
+            ?>
+            <?= $this->formSelect(
+                        'representanteID',
+                        $form['representanteID'],
+                        $options,
+                        $this->select->representantes
+                    ) ?>
+                    </td>
+	</tr>
+	<tr>
+        <td>Tipo de Embarque:<br/>
+            <?php
+                $options = array(
+                            'style'=>'min-width:120px',
+                            'class'=>"required {$fieldRequired['tipoEmbarqueID']}"
+                        );
+            ?>
+            <?= $this->formSelect(
+                        'tipoEmbarqueID',
+                        $form['tipoEmbarqueID'],
+                        $options,
+                        $this->select->tiposEmbarque
+                    ) ?>
+                    </td>
+        <td>Status:<br/>
+            <?php
+                $options = array(
+                            'style'=>'min-width:120px',
+                            'class'=>"required {$fieldRequired['statusID']}"
+                        );
+            ?>
+            <?= $this->formSelect(
+                        'statusID',
+                        $form['statusID'],
+                        $options,
+                        $this->select->status
+                    ) ?>
+       </td>
+	   <td>Pedido Cliente:<br/>
+				<?php
+					$options = array(
+								'style'=>'min-width:120px',
+								'class'=>"{$fieldRequired['pedidoCliente']}"
+							);
+				?>
+				<?= $this->formText(
+							'pedidoCliente',
+							$form['pedidoCliente'],
+							$options
+						) ?>
+						</td>
+
+	</tr>
+</table>

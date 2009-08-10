@@ -1,0 +1,389 @@
+
+/*@CHARSET "UTF-8":*/
+/* AUTO COMPLETE STUFF FOR jquery.suggest.js*/
+
+
+*{
+    padding:0;
+    margin:0;
+    border:0;
+}
+
+/* general */
+a {
+	color:#777;
+	text-decoration:none;
+}
+a:hover {
+	color:#333;
+}
+
+body {
+	background:#ddddee;
+	color:#8888bb;
+	font:0.9em Arial, sans, sans-serif, Helvetica, "bitstream vera sans";
+	text-align: left;
+}
+#content{
+	width:800px;
+    text-align:left;
+    background:#e5e5fe;
+    padding:10px;
+    min-height:400px;
+}
+
+#content h1{
+	margin-top:20px;
+	font-size:1.8em;
+    margin-bottom:10px;
+}
+
+
+/* by tilinho*/
+
+input,select, textarea
+{
+	color: #000077;
+	background: WHITE;
+	border: 1px solid #bbbbbb;
+	margin-bottom: 4px;
+}
+
+select{
+	min-width: 50px;
+}
+input:FOCUS, select:FOCUS, textarea:FOCUS
+{
+	border: 1px solid #9999aa;
+}
+input:hover,select:hover,textarea:hover, input[type="file"]
+{
+	background-color:#eeeeee;
+}
+.field_required
+{
+	color: #ffffff;
+	background:#ff5555;
+	border: 1px solid red;
+}
+.fieldRequired
+{
+	border: 2px solid red;
+}
+
+.button, .button2
+{
+	color:white;
+	background: #aaaacc;
+	border: 2px solid #8888aa;
+	margin: 15px;
+	width:75px;
+}
+
+.button:HOVER
+{
+	background-color: #5970c3;
+	border: 2px solid #8888aa;
+}
+
+.button2:HOVER
+{
+	background: #cf0000;
+	border: 2px solid #8888aa;
+}
+
+
+br{
+	clear: left;
+}
+
+
+.evenRow
+{
+	background-color: #ccccd9;
+	color: black;
+	border: 1px solid #d0d0d0;
+	font-size:9pt;
+	border-collapse: collapse;
+}
+
+.oddRow
+{
+	background-color: white;
+	color: black;
+	border: 1px solid #d0d0d0;
+	font-size:9pt;
+	border-collapse: collapse;
+}
+
+.oddRow:HOVER,.evenRow:HOVER
+{
+	background-color: #5970B2;
+}
+
+.oddRow:HOVER a,.evenRow:HOVER a
+{
+	color: white;
+}
+
+.error{
+	color:red;
+    font-size:13px;
+}
+.success{
+	color:green;
+    font-size:13px;
+}
+
+.errors{
+	/* error class by zend*/
+	color:red;
+}
+
+#status{
+	color:white;
+	font: bold 13px arial, sans;
+	z-index: 2;
+	position: absolute;
+	top: 10px;
+    right: 10px;
+	width: 200px;
+    height:20px;
+    background-color:red;
+    text-align:center;
+    vertical-align: middle;
+    display:none;
+}
+
+
+
+.fieldset2 {
+	background-color: #ccccdd;
+	border-color: #bbbbcc;
+	border-color: #eeeeff;
+	border-style: double;
+	border-width: 2pt;
+	margin-left:5pt;
+	padding: 10pt;
+}
+
+  
+ .fieldset2 legend {
+	  padding: 0.2em 0.5em;
+	  font-size:90%;
+	  text-align:center;
+ }
+ 
+ .negativo{
+ 	color:red;
+ }
+ .positivo{
+ 	color:blue;
+ }
+ 
+ 
+ 
+ 
+ #divRightMenu{
+ /*
+ 	width: AUTO;
+	margin:10px;
+	
+	*/
+	border: solid 2px #bbbbcc;
+	position:absolute;	
+	background-color:#eeeeff;
+	width:auto;
+	top:50px;
+	right:15px;
+ 	
+ }
+
+ .divInfo{
+ 	border: solid 2px white;
+	background-color:#eeeeff;
+	padding:10px;
+	text-align:center;
+	position:absolute;
+ }
+
+ #fechar{
+ margin:20px;
+ }
+
+ tr td, th{
+ 	padding-left:3px;
+ 	padding-right:3px;
+    font-size:15px;
+ }
+ 
+ .soft{
+ 	font-size: 11px;
+ 	color:gray;
+ }
+ 
+ .divInner{
+ 	margin:5px;
+ 	padding:10px;
+ 	/*border:solid 1px #bbbbcc;*/
+ 	background-color:#ddddee;
+ }
+
+
+ #divFotoProduto{
+	text-align: center;
+    border: 5px solid #aaaacc;;
+    width:300px;
+    height:225px;
+    float:right;
+ }
+#pic {
+	width:300px;
+    height:225px;
+}
+
+#divFotoProduto a{
+	color:gray;
+	font-size: 10px;
+ }
+
+#tabelaListaCombinacoes{
+    width:100%;
+
+}
+
+.left{
+    text-align:left;
+}
+.right{
+    text-align:right;
+}
+
+.center{
+    text-align:center;
+}
+
+th{
+    text-align:center;
+    background-color:#ddddee;
+    color:#555566;
+}
+
+#cleanContent{
+    padding:15px;
+}
+
+.editDelCell{
+    width:30pt;
+    text-align:center;
+    
+}
+
+#tabelaCidades{
+    width:100%;
+}
+
+#tabelaCidades tbody{
+  max-height:10em;
+  
+  overflow:auto;
+  padding-right:40px;
+
+}
+
+
+.menuCentral{
+    border-right:solid 2px #bbbbcc;
+    border-left: solid 2px #bbbbcc;
+	border-bottom: solid 2px #bbbbcc;
+	position:absolute;
+	background-color:#eeeeff;
+	width:auto;
+	top:0;
+    left:50%;
+    min-width:200px;
+ }
+
+.fechar{
+    width:100%;
+    background-color:#5970B2;
+    height:25px;
+    color:white;
+    font-weight:bold;
+}
+.fechar a{
+    background-color:white;
+    color:blue;
+    margin-right:5px;
+    padding: 0px 4px 0px 4px;
+    position:absolute;
+    top:2px;
+    right:1px;
+}
+
+
+
+fieldset {
+	border-color: #bbbbcc;
+	border-color: #eeeeff;
+	border-style: double;
+	border-width: 2pt;
+    padding:5px;
+
+}
+
+
+ legend {
+	  padding: 0.2em 0.5em;
+	  font-size:90%;
+	  text-align:center;
+      margin-left:10px;
+ }
+
+.dinheiro{
+    text-align:right;
+}
+
+.topMessages{
+    background-color:white;
+    border:solid 2px #bbbbdd;
+    padding: 10px;
+    margin-bottom:10px;
+}
+
+table .total{
+	background-color:#ddddee;
+    color:#555566;
+	text-align: right;
+	font-weight: bold;
+}
+
+
+.pagination{
+    text-align: center;
+    background-color: #ffffff;
+    font-size: 13px;
+    color: blue;
+}
+
+.pagination .disabled {
+    color: gray;
+}
+
+.pagination a {
+    color: blue;
+}
+
+.detalhes{
+	/*background:url(../images/transparency-blue.png);*/
+	background:#e9e9ff;
+	position:absolute;
+	
+	border: 2px solid white;
+
+	/*
+	filter:alpha(opacity=70);
+	opacity: 0.7;
+	-moz-opacity:0.7;
+	*/
+}

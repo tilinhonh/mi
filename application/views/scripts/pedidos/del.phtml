@@ -1,0 +1,11 @@
+<?php if($this->pedido):?>
+    <p>Tem certeza que deseja excluir o pedido '<?= $this->pedido->id?>' do corso
+		'<?= $this->pedido->findParentRow('Corsos')->corso ?>'?</p>
+    <form method="post">
+        <input type="hidden" name="id" value="<?= $this->pedido->id ?>"/>
+        <input type="submit" name="del" value="sim" class="button"/>
+        <input type="submit" name="del" value="não" class="button2"/>
+    </form>
+<?php else:?>
+    <p>Registro não encontrado.</p>
+<?php endif;?>

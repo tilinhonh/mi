@@ -1,0 +1,14 @@
+<?php if ($this->fabrica) :?> 
+	<p>Tem certeza que deseja deletar a fábrica
+	  '<?php echo $this->escape($this->fabrica->fantasia); ?>'? 
+	</p> 
+	<form action="<?php echo $this->url(array('action'=>'del')); ?>" method="post"> 
+		<div> 
+		  <input type="hidden" name="id" value="<?php echo $this->fabrica->id; ?>" /> 
+		  <input type="submit" class="button"  name="del" value="Sim" /> 
+		  <input type="submit" class="button2" name="del" value="Não" /> 
+		</div> 
+	</form> 
+<?php else: ?> 
+	<p>Fábrica não pôde ser encontrada.</p> 
+<?php endif;?> 

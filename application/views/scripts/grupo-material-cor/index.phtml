@@ -1,0 +1,32 @@
+<table style="width:100%">
+    <tr>
+        <th>Estação</th>
+        <th>Cliente</th>
+        <th>Material</th>
+        <th>Cor</th>
+        <th>Codigo</th>
+        <th>Obs:</th>
+        <th>
+            <a href="/<?= $this->controllerName ?>/add"><img src="/images/add4.png"
+                title="Editar" alt="Editar" /></a>
+        </th>
+    </tr>
+<?php foreach($this->grupoMaterialCor as $c): ?>
+<?php $class = $class == 'evenRow' ? 'oddRow' : 'evenRow';?>
+    <tr class="<?=$class?>">
+		<td><?= $c->findParentRow('Estacoes')->estacao;?></td>
+        <td><?= $c->findParentRow('Divisoes')->divisao;?></td>
+        <td><?= $c->findParentRow('Materiais')->material;?></td>
+        <td><?= $c->findParentRow('Cores')->cor;?></td>
+        <td><?= $c->codigo;?></td>
+        <td><?= $c->observacoes;?></td>
+        <td class="editDelCell">
+            <a href="/<?= $this->controllerName ?>/edit/id/<?= $c->id?>"><img src="/images/edit.png"
+                title="Editar" alt="Editar" /></a>
+
+            <a href="/<?= $this->controllerName ?>/del/id/<?= $c->id?>"><img src="/images/del.png"
+                title="Deletar" alt="Deletar" /></a>
+        </td>
+    </tr>
+<?php endforeach;?>
+</table>

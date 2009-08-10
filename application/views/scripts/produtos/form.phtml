@@ -1,0 +1,96 @@
+<form method="post" id="formProdutos">
+	<?php
+		$form = $this->formData;
+	?>
+	<!-- Form que carrega as fotos do banco-->
+	<?= $this->formHidden('pictures', $form['pictures']) ?>
+	<?= $this->formHidden('id', $form['id']) ?>
+	<table id="formTable" border="1">
+		<tr>
+			<td>
+				Nome:<br />
+				<?= $this->formText('nome', $form['nome'],
+						array('class'=>'required',
+								'size'=>30,
+								'maxlength'=>60,
+						
+						))
+					?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Referência:<br />
+				<?= $this->formText('referencia', $form['referencia'],
+						array('class'=>'required',
+								'size'=>15,
+								'maxlength'=>6,
+						))
+					?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Referência Cliente:<br />
+				<?= $this->formText('referenciaCliente', $form['referenciaCliente'],
+						array('class'=>'',
+								'size'=>15,
+								'maxlength'=>60,
+						))
+					?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Tipo:<br />
+				<?= $this->formSelect('tipoID', $form['tipoID'],
+						array('class'=>'required'),$this->select->tiposProduto)
+					?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Grupo:<br />
+				<?= $this->formSelect('divisaoID', $form['divisaoID'],
+						array('class'=>'required'),$this->select->divisoes)
+					?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Estação:<br />
+				<?= $this->formSelect('estacaoID', $form['estacaoID'],
+						array('class'=>'required'),$this->select->estacoes)
+					?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Designer:<br />
+				<?= $this->formSelect('designer_id', $form['designer_id'],
+						array('class'=>''),$this->select->designers)
+					?>
+			</td>
+		</tr>
+		<tr>	
+			<td>
+				Construção:<br />
+				<?= $this->formSelect('construcaoID', $form['construcaoID'],
+						array('class'=>''),$this->select->construcoes)
+					?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3"></td>
+			<td colspan="2" style="text-align:right;">
+				<?= $this->formSubmit('submit', 'Salvar', array('class'=>'button')) ?>
+			</td>
+			<td colspan="2">
+				<?= $this->formButton('cancelar', 'Cancelar',
+						array('class'=>'button2',
+								'onclick'=>'javascript:window.location.href=\'/produtos\''
+						)) ?>
+			</td>
+    		</tr>
+	</table>
+</form>

@@ -1,0 +1,24 @@
+<? // application/views/scripts/error/error.phtml ?>
+<br/>
+<br/>
+<pre style="text-align:left;">
+    <?= $this->message ?><br/><br/>
+</pre>
+
+<? if ('development' !== $this->env): ?> 
+	<?php if($this->exception):?>
+        <h3>Exception information:</h3> 
+        <p> 
+            <b>Message:</b> <?= $this->exception->getMessage() ?> 
+        </p> 
+    
+        <h3>Stack trace:</h3> 
+        <pre><?= $this->exception->getTraceAsString() ?></pre>
+     <?php endif;?> 
+
+	
+	<?php if($this->request):?>
+        <h3>Request Parameters:</h3> 
+        <pre><? var_dump($this->request->getParams()) ?></pre> 
+    <? endif ?>
+<? endif ?>

@@ -1,0 +1,24 @@
+<table class="tableItems">
+	<th>Name</th>
+	<th>Description</th>
+	 <th>
+    	<a href="<?php echo $this->url(array('action'=>'add'));?>">
+    		<img src="/images/add4.png" alt="Adicionar" title="Adicionar" />
+    	</a>
+    </th> 
+
+	<?php foreach($this->groups as $group) :?>
+	<?php @$style=($style=='evenRow') ? 'oddRow' : 'evenRow' ;?> 
+	<tr class="<?php echo @$style;?>"> 
+			<td><?php echo $this->escape($group->name);?></td>
+			<td><?php echo $this->escape($group->description);?></td>
+			<td class="editDelCell">
+		        <a href="<?php echo $this->url(array('controller'=>'groups',
+		            'action'=>'edit', 'id'=>$group->id));?>"><img src="/images/edit.png" alt="Editar" title="Editar" /></a>
+		            
+		        <a href="<?php echo $this->url(array('controller'=>'groups',
+		            'action'=>'del', 'id'=>$group->id));?>"><img src="/images/del.png" alt="Excluir" title="Excluir" /></a>
+		    </td> 
+		</tr>
+	<?php endforeach; ?>
+</table>

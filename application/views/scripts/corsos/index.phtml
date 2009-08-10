@@ -1,0 +1,43 @@
+<table style="width:100%;">
+    <tr>
+        <th>Corso</th>
+        <th>Inclusão</th>
+        <th>Estacão</th>
+        <th>Quantidade</th>
+        <th>
+            <a href="/<?= $this->controllerName ?>/add/id/<?= $corso->id?>"><img src="/images/add4.png"
+                title="Editar" alt="Editar" /></a>
+        </th>
+    </tr>
+<?php
+	$total = array();
+	foreach($this->corsos as $corso):
+		$total['quantidade'] += $corso['quantidade'];
+?>
+    <?php $row =  !$row; ?>
+    <?php $trClass = $row ? 'oddRow' : 'evenRow'; ?>
+
+    <tr class="<?= $trClass?>">
+		<td><?= $corso['nome'] ?></td>
+		<td class="center"><?= BrazilianDate::toBrazilFormat($corso['inclusao']) ?></td>
+		<td class="center"><?= $corso['estacao'] ?></td>
+		<td  class="right"><?= $corso['quantidade'] ?></td>
+		
+
+        <td class="editDelCell">
+            <a href="/<?= $this->controllerName ?>/edit/id/<?= $corso['id'] ?>"><img src="/images/edit.png"
+                title="Editar" alt="Editar" /></a>
+
+            <a href="/<?= $this->controllerName ?>/del/id/<?= $corso['id'] ?>"><img src="/images/del.png"
+                title="Deletar" alt="Deletar" /></a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+ <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="right"><?= $total['quantidade'] ?></th>
+        <th></th>
+    </tr>
+</table>

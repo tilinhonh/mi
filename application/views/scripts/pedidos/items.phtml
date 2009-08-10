@@ -1,0 +1,55 @@
+<table id="tabelaItesPedido" width="100%">
+	<tr>
+		<th>Ref.</th>
+		<th>Ref. Cliente</th>
+		<th>Nome</th>
+		<th>Material/Cor</th>
+		<th>Qtd</th>
+		<th>Fabrica</th>
+		<th>Venda</th>
+		<th class="editDelCell"><img src="/images/add4.png" onclick="javascript:window.location.href='/item-pedido/add/pedido/<?=$form['id']?>';"
+				alt="Adicionar" title="Adicionar"/></th>
+	</tr>
+	<?php $total = array('quantidade'=> 0)?>
+	<?php foreach($this->itens as $item): ?>
+		<?php $class = $class == 'evenRow' ? 'oddRow' : 'evenRow'?>
+		<tr class="<?= $class ?>">
+
+			<td>	<?= $item['referencia'] ;?>			</td>
+
+			<td>	<?= $item['referencia_cliente'] ;?>	</td>
+
+			<td>	<?= $item['nome_produto'] ;?>		</td>
+
+			<td id="cb<?= $item['item_id']?>" class="artigos center"> ... </td>
+
+
+			<td class="right"> <?= $item['quantidade'] ;?>	</td>
+				
+				<?php $total['quantidade'] += $item['quantidade']?>
+
+			<td class="right">	<?= Dinheiro::toBrazilFormat($item['preco_fabrica']) ;?>	</td>
+
+				<?php $total['preco_fabrica'] +=  $item['quantidade'] * $item['preco_fabrica']?>
+
+			<td class="right">	<?= Dinheiro::toBrazilFormat($item['preco_cliente']) ;?>	</td>
+				<?php $total['preco_cliente'] +=  $item['quantidade'] * $item['preco_cliente']?>
+
+			<td class="editDelCell">
+				<img src="/images/edit.png" onclick="javascript:window.location.href='/item-pedido/edit/id/<?=$item['item_id'] ?>';"/>
+				<img src="/images/del.png" onclick="javascript:delItem(<?=$item['item_id'] ?>,'<?=$item['nome_produto'] ?>');" alt="deletar" title="Deletar"/>
+			</td>
+
+		</tr>
+	<?php endforeach; ?>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td class="total"><?= $total['quantidade']?></td>
+		<td class="total"><?= Dinheiro::toBrazilFormat($total['preco_fabrica'])?></td>
+		<td class="total"><?= Dinheiro::toBrazilFormat($total['preco_cliente'])?></td>
+	</tr>
+</table>
+

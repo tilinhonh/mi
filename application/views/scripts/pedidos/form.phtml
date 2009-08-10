@@ -1,0 +1,22 @@
+<?php $form = $this->formData;?>
+<form method="post" id="formPedido">
+	<?= $this->formHidden('id', $form['id']); ?>
+	<table>
+		<tr>
+			<td><?php require('form_p1.phtml');?></td>
+		</tr>
+		<tr>
+			<td><?php require('form_p2.phtml');?></td>
+		</tr>
+	</table>
+
+	<?= $this->formSubmit('submit','Salvar', array('class'=>'button')); ?>
+	<?php $back_link = $_SERVER['HTTP_REFERER'] ? $_SERVER['HTTP_REFERER'] : '/pedidos'?>
+	<?= $this->formButton('cancelar','Cancelar',
+		array(
+			'class'=>'button2',
+			'onclick'=> "window.location.href ='$back_link'",
+		));
+	?>
+
+</form>

@@ -1,0 +1,14 @@
+<?php if ($this->cor) :?> 
+	<p>Tem certeza que deseja deletar a cor
+	  '<?php echo $this->escape($this->cor->cor); ?>'? 
+	</p> 
+	<form action="<?php echo $this->url(array('action'=>'del')); ?>" method="post"> 
+		<div> 
+		  <input type="hidden" name="id" value="<?php echo $this->cor->id; ?>" /> 
+		  <input type="submit" class="button"  name="del" value="Sim" /> 
+		  <input type="submit" class="button2" name="del" value="Não" /> 
+		</div> 
+	</form> 
+<?php else: ?> 
+	<p>Cor não pôde ser encontrada.</p> 
+<?php endif;?> 

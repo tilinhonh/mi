@@ -1,0 +1,14 @@
+<?php if ($this->cidade) :?> 
+	<p>Tem certeza que deseja deletar a cidade
+	  '<?php echo $this->escape($this->cidade->cidade); ?>'? 
+	</p> 
+	<form action="del"	method="post"> 
+		<div> 
+		  <input type="hidden" name="id" value="<?php echo $this->cidade->id; ?>" /> 
+		  <input type="submit" class="button"  name="del" value="Sim" /> 
+		  <input type="submit" class="button2" name="del" value="Não" /> 
+		</div> 
+	</form> 
+<?php else: ?> 
+	<p>A cidade não pode ser encontrada.</p> 
+<?php endif;?> 

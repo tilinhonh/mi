@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
+	<head> 
+	    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+	    <title><?= $this->escape($this->title); ?></title>
+	    <link rel="SHORTCUT ICON" href="/public/images/icon.ico" type="image/x-icon" />
+	    <link rel="stylesheet" type="text/css" href="<?= $this->baseUrl();?>/css/default.css" media="all"/>
+        <link rel="stylesheet" type="text/css" href="<?= $this->baseUrl();?>/css/menu.css" media="all"/>
+        <link rel="stylesheet" type="text/css" href="<?= $this->baseUrl();?>/css/suggest.css" media="all"/>
+<?php //LOADS SOME SCRIPTS ?>
+<?php if(is_array($this->script)):?>	    
+	<?php foreach($this->script as $script):?>
+		<script type="text/javascript" language="javascript" src="<?= $this->baseUrl();?>/js/<?= $script;?>"> </script>
+	<?php endforeach;?>
+<?php endif;?>
+
+	</head>
+	<body>
+			<div id="menuDiv">
+                <div id="divMainMenu">
+                    <ul id="nav">
+                        <li><a href="#">Cadastro Geral</a>
+                            <ul>
+                                <li><a href="/clientes">Clientes</a></li>
+                                <li><a href="/fabricas">Fábrica</a></li>
+                                <li><a href="/representantes">Representantes</a></li>
+                                <li><a href="/transportadoras">Transportadoras</a></li>
+                                <li><a href="/produtos">Produtos ...</a>
+                                    <ul>
+                                        <li><a href="/cores">Cor</a></li>
+                                        <li><a href="/materiais">Material</a></li>
+                                        <li><a href="/ncms">NCM</a></li>
+                                        <li><a href="/tamanhos">Tamanho</a></li>
+                                        <li><a href="/tipo-de-produto">Tipo</a></li>
+                                        <li><a href="/grupo-material-cor">Relação de Cores/Materiais</a></li>
+                                        <li><a href="/designers">Designers</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Outros...</a>
+                                    <ul>
+                                        <li><a href="/estacoes">Estacões</a></li>
+                                        <li><a href="/grupos">Grupos</a></li>
+                                        <li><a href="/tipo-de-embarque">Tipo de Embarque</a></li>
+                                        <li><a href="/estados">Estados</a></li>
+                                        <li><a href="/cidades">Cidades</a></li>
+                                        <li><a href="/status">Status de Pedido</a></li>
+                                        
+                                    </ul>
+                                </li>
+                           </ul>
+                        </li>
+                        <li><a href="#">Comercial</a>
+                            <ul>
+                                <li><a href="/corsos">Pedidos</a></li>
+                                <li><a href="#">Relatorios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Financeiro</a>
+                            <ul>
+                                <li><a href="#">Consultas</a></li>
+                                <li><a href="#">Relatórios ...</a>
+                                    <ul>
+                                        <li><a href="#">Rel tipo 1</a></li>
+                                        <li><a href="#">Rel tipo 2</a></li>
+                                        <li><a href="#">Rel tipo 3</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Lançamentos</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Faturamento</a>
+                            <ul>
+                                <li><a href="#">Código Fiscal</a></li>
+                                <li><a href="#">NF Saída</a></li>
+                                <li><a href="#">NF Entrada</a></li>
+                                <li><a href="#">Dados Embarque</a></li>
+                                <li><a href="#">Etc..</a></li>
+                            </ul>
+                        </li>
+                       <!-- <li><a href="#">Sair</a></li> -->
+                    </ul>
+                 </div>
+					        <?php
+					        	$registro=array();
+					        	$registro['tipoproduto']='<a href="/tipo-de-produto">Tipo de Produto</a>';
+					        	$registro['tamanhos']='<a href="/tamanhos">Tamanhos</a>';
+					        ?>
+			<div style="clear:both"></div>
+			<div id="loginInf"><?= $this->tracker()->render() ?>Logado como TROCAR NOME</div>
+		</div><!-- menuDiv -->
+			<div id="status"></div>
+		
+		<div align="center">
+			<div id="content"> 
+			<!--here goes the real content -->	
+			
+				<?= $this->flash()->render();?>
+				<?php if($this->title):?>
+				  	<h1 id="pageTitle"><?= $this->escape($this->title); ?></h1>
+				<?php endif;?>
+				<?= $this->errors()->render();?>
+			    <?= $this->layout()->content; ?>
+			    
+			    
+			    
+			</div> 
+		</div>
+	</body> 
+</html> 

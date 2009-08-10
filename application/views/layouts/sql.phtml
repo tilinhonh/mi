@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">  
+	<head> 
+	    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+	    <title><?= $this->escape($this->title); ?></title>
+	    <link rel="SHORTCUT ICON" href="/public/images/icon.ico" type="image/x-icon" />
+
+		<style type="text/css">
+			body{
+				margin:0;
+				padding:0;
+				background-color:#eeeeff;
+				font-family: verdana, arial, sans, 'sans-serif';
+				font-size: 14px;
+			}
+			.topMessages{
+				text-align: left;
+				background-color:white;
+				border:solid 2px #bbbbdd;
+				padding: 10px;
+				margin:10px;
+				width: 50%;
+			}
+
+			.error{
+				color:red;
+				font-size:13px;
+			}
+			textarea{
+				border:2px solid #666688;
+			}
+
+			#formDiv{
+				background-color:#777799;
+				padding: 10px;
+			}
+
+			.button
+			{
+				color:white;
+				background: #aaaacc;
+				border: 2px solid #8888aa;
+				width:75px;
+			}
+			.button:HOVER
+			{
+				background: #cf0000;
+				border-color: #9999bb;
+			}
+
+			#resultDiv
+			{
+				
+			}
+			.evenRow
+			{
+				background-color: #bbbbff;
+			}
+			.oddRow
+			{
+				background-color: #bbbbcc;
+			}
+			table{
+				margin: 15px;
+			}
+			td, th{
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+			th{
+				font-size: 12px;
+				font-weight:normal;
+			}
+			p{
+				padding: 0;
+				margin: 0;
+			}
+
+
+		</style>
+		<script type="text/javascript">
+
+		</script>
+	</head>
+	<body>
+		<div align="center">
+			<div id="content"> 
+			    <?= $this->layout()->content; ?>
+			</div> 
+		</div>
+	</body> 
+</html> 

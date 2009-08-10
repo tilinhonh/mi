@@ -1,0 +1,39 @@
+<div class="pagination" style="width:100%">
+    <div>
+        <!-- First page link -->
+        <?php if (isset($this->previous)): ?>
+              <a href="<?= $this->url(array('page' => $this->first)); ?>">Inicio</a> |
+        <?php else: ?>
+                <span class="disabled">Início</span> |
+        <?php endif; ?>
+
+        <!-- Previous page link -->
+
+        <?php if (isset($this->previous)): ?>
+              <a href="<?= $this->url(array('page' => $this->previous)); ?>">&lt; Anterior</a> |
+        <?php else: ?>
+            <span class="disabled">&lt; Anterior</span> |
+        <?php endif; ?>
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page != $this->current): ?>
+                <a href="<?= $this->url(array('page' => $page)); ?>"><?= $page; ?></a>
+            <?php else: ?>
+                <?= $page; ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+              | <a href="<?= $this->url(array('page' => $this->next)); ?>">Próxima &gt;</a> |
+        <?php else: ?>
+            | <span class="disabled">Next &gt;</span> |
+        <?php endif; ?>
+        <!-- Last page link -->
+        <?php if (isset($this->next)): ?>
+              <a href="<?= $this->url(array('page' => $this->last)); ?>">Fim</a>
+        <?php else: ?>
+            <span class="disabled">Fim</span>
+        <?php endif; ?>
+        &nbsp; página <?= $this->current; ?> de <?= $this->last; ?>
+    </div>
+ </div>
