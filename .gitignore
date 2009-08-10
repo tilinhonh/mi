@@ -1,3 +1,4 @@
 *.log
 .svn
 tmp/*
+file  	 DbInitialize.php
